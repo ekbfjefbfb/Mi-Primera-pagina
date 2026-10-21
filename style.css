@@ -143,49 +143,6 @@ body {
     font-weight: 600;
 }
 
-/* Skills Grid */
-.grid-skills {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 12px;
-}
-
-.skill-item {
-    background: var(--bg-card-subtle);
-    border: 1px solid var(--border-subtle);
-    border-radius: var(--radius-sm);
-    padding: 14px 16px;
-    transition: border-color 0.15s ease;
-}
-
-.skill-item:hover {
-    border-color: var(--border-hover);
-}
-
-.skill-header {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    margin-bottom: 6px;
-    color: var(--text-primary);
-}
-
-.skill-header svg {
-    color: var(--text-secondary);
-    flex-shrink: 0;
-}
-
-.skill-header h3 {
-    font-size: 0.9rem;
-    font-weight: 600;
-}
-
-.skill-item p {
-    font-size: 0.8rem;
-    color: var(--text-secondary);
-    line-height: 1.5;
-}
-
 /* Education */
 .education-card {
     background: var(--bg-card-subtle);
@@ -304,10 +261,6 @@ body {
 
     .profile-name {
         font-size: 1.25rem;
-    }
-
-    .grid-skills {
-        grid-template-columns: 1fr;
     }
 
     .education-header {
