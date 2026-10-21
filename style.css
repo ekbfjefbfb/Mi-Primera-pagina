@@ -85,29 +85,6 @@ body {
     gap: 6px;
 }
 
-.status-pill {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    font-size: 0.78rem;
-    font-weight: 500;
-    color: var(--text-secondary);
-    background: var(--bg-card-subtle);
-    border: 1px solid var(--border-subtle);
-    padding: 4px 10px;
-    border-radius: 999px;
-    width: fit-content;
-    margin-bottom: 2px;
-}
-
-.status-dot {
-    width: 6px;
-    height: 6px;
-    border-radius: 50%;
-    background-color: #22c55e;
-    box-shadow: 0 0 8px rgba(34, 197, 94, 0.6);
-}
-
 .profile-name {
     font-size: 1.45rem;
     font-weight: 700;
