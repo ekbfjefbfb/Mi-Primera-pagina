@@ -1,4 +1,4 @@
-/* style.css - Diseño Premium, Fluido, Accesible y Moderno */
+/* style.css - Diseño Premium Dark OLED / Oscuro Puro, Fluido, Accesible y Moderno */
 
 /* Reseteo básico para consistencia */
 *, *::before, *::after {
@@ -7,10 +7,10 @@
     box-sizing: border-box;
 }
 
-/* Configuraciones generales del cuerpo de la página */
+/* Configuraciones generales del cuerpo de la página en Oscuro Puro (#000000) */
 body {
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-    color: #1f2937;
+    color: #e5e7eb;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -18,11 +18,12 @@ body {
     padding: 40px 20px;
     overflow-x: hidden;
     overflow-y: auto;
-    background-color: #0A192F;
+    background-color: #000000;
+    background: #000000;
     perspective: 1000px;
 }
 
-/* Fondo animado - NUBE DE COLORES MEZCLADOS REAL (Fluid/Liquid Mix + Cambio de Color) */
+/* Fondo ambiental sutil y oscuro - sin luces chillonas, atmósfera oscura y pulida */
 .background-animado {
     position: fixed;
     top: 0;
@@ -30,120 +31,71 @@ body {
     width: 100vw;
     height: 100vh;
     z-index: -1;
-    filter: blur(100px);
+    filter: blur(120px);
     overflow: hidden;
     pointer-events: none;
-    animation: colorFondoBase 40s infinite alternate ease-in-out;
+    background-color: #000000;
 }
 
-/* Mancha 1 independiente (Tonos cálidos y vibrantes) */
+/* Halos oscuros y elegantes que dan profundidad sobre el fondo negro puro */
 .background-animado::before {
     content: '';
     position: absolute;
-    top: -10%;
-    left: 10%;
-    width: 80vw;
-    height: 80vw;
+    top: -15%;
+    left: 15%;
+    width: 60vw;
+    height: 60vw;
     border-radius: 50%;
-    will-change: transform, background-color;
-    animation: moverYCambiarColor1 45s infinite alternate ease-in-out;
+    background: radial-gradient(circle, rgba(55, 48, 163, 0.12) 0%, rgba(0, 0, 0, 0) 70%);
+    will-change: transform;
+    animation: moverAuraOscura1 25s infinite alternate ease-in-out;
 }
 
-/* Mancha 2 independiente (Tonos fríos y místicos) */
 .background-animado::after {
     content: '';
     position: absolute;
-    bottom: -10%;
-    right: 10%;
-    width: 80vw;
-    height: 80vw;
+    bottom: -15%;
+    right: 15%;
+    width: 60vw;
+    height: 60vw;
     border-radius: 50%;
-    will-change: transform, background-color;
-    animation: moverYCambiarColor2 50s infinite alternate-reverse ease-in-out;
+    background: radial-gradient(circle, rgba(30, 58, 138, 0.10) 0%, rgba(0, 0, 0, 0) 70%);
+    will-change: transform;
+    animation: moverAuraOscura2 30s infinite alternate-reverse ease-in-out;
 }
 
-/* --- ANIMACIONES DE PROFUNDIDAD Y MULTICOLOR --- */
-@keyframes colorFondoBase {
-    0% { background-color: #05020A; }
-    25% { background-color: #1a0525; }
-    50% { background-color: #051515; }
-    75% { background-color: #250505; }
-    100% { background-color: #0A192F; }
+@keyframes moverAuraOscura1 {
+    0% { transform: translate(0, 0) scale(1); }
+    50% { transform: translate(15vw, 10vh) scale(1.15); }
+    100% { transform: translate(-10vw, 20vh) scale(0.9); }
 }
 
-@keyframes moverYCambiarColor1 {
-    0% { 
-        transform: translate(0, 0) scale(1); 
-        background-color: rgba(160, 95, 45, 0.9);
-    }
-    20% {
-        transform: translate(30vw, 20vh) scale(0.3); 
-        background-color: rgba(0, 255, 128, 0.8); 
-    }
-    40% {
-        transform: translate(-10vw, 40vh) scale(2.5); 
-        background-color: rgba(255, 0, 128, 0.9); 
-    }
-    60% {
-        transform: translate(40vw, -30vh) scale(0.4); 
-        background-color: rgba(0, 100, 255, 0.8); 
-    }
-    80% {
-        transform: translate(-30vw, -10vh) scale(1.8); 
-        background-color: rgba(255, 255, 0, 0.9); 
-    }
-    100% { 
-        transform: translate(20vw, -10vh) scale(1); 
-        background-color: rgba(255, 80, 50, 0.8);
-    }
+@keyframes moverAuraOscura2 {
+    0% { transform: translate(0, 0) scale(1.1); }
+    50% { transform: translate(-15vw, -10vh) scale(0.95); }
+    100% { transform: translate(10vw, -15vh) scale(1.05); }
 }
 
-@keyframes moverYCambiarColor2 {
-    0% { 
-        transform: translate(0, 0) scale(1.2); 
-        background-color: rgba(110, 25, 95, 0.9);
-    }
-    20% {
-        transform: translate(-40vw, -20vh) scale(2.2); 
-        background-color: rgba(0, 255, 255, 0.9); 
-    }
-    40% {
-        transform: translate(-20vw, 10vh) scale(0.2); 
-        background-color: rgba(255, 100, 0, 0.8); 
-    }
-    60% {
-        transform: translate(30vw, 30vh) scale(1.8); 
-        background-color: rgba(138, 43, 226, 0.9); 
-    }
-    80% {
-        transform: translate(-10vw, -40vh) scale(0.3); 
-        background-color: rgba(50, 255, 50, 0.8); 
-    }
-    100% { 
-        transform: translate(-10vw, -30vh) scale(1); 
-        background-color: rgba(0, 100, 150, 0.8);
-    }
-}
-
-/* La tarjeta principal (Glassmorphism effect de alta gama) */
+/* Tarjeta principal con Dark Glassmorphism de alta gama */
 .contenedor {
-    background: rgba(255, 255, 255, 0.82); 
-    backdrop-filter: blur(40px); 
-    -webkit-backdrop-filter: blur(40px);
+    background: rgba(12, 12, 14, 0.85); 
+    backdrop-filter: blur(40px) saturate(160%); 
+    -webkit-backdrop-filter: blur(40px) saturate(160%);
     width: 100%;
     max-width: 860px;
     padding: 70px 55px;
     border-radius: 32px;
     text-align: center;
-    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25), inset 0 0 0 1px rgba(255, 255, 255, 0.7);
-    transition: transform 0.8s cubic-bezier(0.165, 0.84, 0.44, 1), box-shadow 0.8s cubic-bezier(0.165, 0.84, 0.44, 1), background 0.5s ease;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 30px 60px -15px rgba(0, 0, 0, 0.9), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+    transition: transform 0.8s cubic-bezier(0.165, 0.84, 0.44, 1), box-shadow 0.8s cubic-bezier(0.165, 0.84, 0.44, 1), background 0.5s ease, border-color 0.5s ease;
     animation: entradaFluida 1.2s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
 }
 
 @keyframes entradaFluida {
     0% {
         opacity: 0;
-        transform: translateY(40px) scale(0.95);
+        transform: translateY(40px) scale(0.96);
     }
     100% {
         opacity: 1;
@@ -151,11 +103,12 @@ body {
     }
 }
 
-/* Efecto elegante al pasar el mouse sobre la tarjeta */
+/* Efecto hover sobre la tarjeta */
 .contenedor:hover {
-    transform: translateY(-10px) scale(1.015);
-    box-shadow: 0 40px 80px -15px rgba(0, 0, 0, 0.3), inset 0 0 0 1px rgba(255, 255, 255, 0.9);
-    background: rgba(255, 255, 255, 0.9);
+    transform: translateY(-8px) scale(1.01);
+    box-shadow: 0 40px 90px -20px rgba(0, 0, 0, 0.95), inset 0 1px 0 rgba(255, 255, 255, 0.14);
+    background: rgba(15, 15, 18, 0.92);
+    border-color: rgba(255, 255, 255, 0.14);
 }
 
 /* Contenedor de la foto de perfil */
@@ -165,16 +118,16 @@ body {
     height: 170px;
     margin: 0 auto 24px;
     border-radius: 50%;
-    padding: 5px; 
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.4));
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+    padding: 4px; 
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.25), rgba(255, 255, 255, 0.04));
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6);
     transition: transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1), box-shadow 0.6s cubic-bezier(0.165, 0.84, 0.44, 1), background 0.6s ease;
 }
 
 .foto-wrapper:hover {
-    transform: translateY(-8px) scale(1.08) rotate(-3deg);
-    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.25);
-    background: linear-gradient(135deg, #00B4D8, #8338EC);
+    transform: translateY(-6px) scale(1.06);
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.8);
+    background: linear-gradient(135deg, #6366f1, #38bdf8);
 }
 
 /* Estilos de la imagen de perfil */
@@ -183,10 +136,10 @@ body {
     height: 100%;
     border-radius: 50%;
     object-fit: cover;
-    object-position: center 18%; /* Encuadra perfectamente el rostro con lentes y el traje ejecutivo */
-    border: 3px solid #ffffff;
+    object-position: center 18%;
+    border: 3px solid #101014;
     display: block;
-    background-color: #e2e8f0;
+    background-color: #111827;
     transition: transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 
@@ -195,46 +148,47 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 8px;
+    gap: 10px;
     flex-wrap: wrap;
-    margin-bottom: 14px;
+    margin-bottom: 18px;
 }
 
 .badge-carrera {
-    background: linear-gradient(135deg, #ede9fe, #e0e7ff);
-    color: #4338ca;
+    background: rgba(99, 102, 241, 0.12);
+    color: #c7d2fe;
     font-size: 0.875rem;
     font-weight: 700;
     padding: 6px 16px;
     border-radius: 9999px;
-    letter-spacing: 0.2px;
-    border: 1px solid rgba(99, 102, 241, 0.2);
-    box-shadow: 0 2px 6px rgba(99, 102, 241, 0.08);
+    letter-spacing: 0.3px;
+    border: 1px solid rgba(99, 102, 241, 0.3);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
 }
 
 .badge-universidad {
-    background: #0f172a;
-    color: #ffffff;
+    background: rgba(255, 255, 255, 0.06);
+    color: #f3f4f6;
     font-size: 0.8rem;
     font-weight: 800;
     padding: 6px 14px;
     border-radius: 9999px;
     letter-spacing: 0.5px;
-    box-shadow: 0 2px 6px rgba(15, 23, 42, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
 }
 
 /* Título principal */
 h1 {
-    color: #0f172a; 
+    color: #ffffff; 
     font-size: 2.35rem;
     font-weight: 800;
     margin-bottom: 22px;
     letter-spacing: -0.8px;
-    transition: color 0.4s ease, transform 0.4s ease;
+    transition: color 0.4s ease;
 }
 
 h1:hover {
-    color: #4338ca;
+    color: #a5b4fc;
 }
 
 /* Párrafos de la presentación */
@@ -245,22 +199,22 @@ h1:hover {
 
 .texto-presentacion p {
     font-size: 1.08rem;
-    line-height: 1.8;
+    line-height: 1.85;
     margin-bottom: 18px;
-    color: #334155;
-    font-weight: 450;
+    color: #9ca3af;
+    font-weight: 400;
     text-align: justify;
     text-justify: inter-word;
     transition: color 0.4s ease;
 }
 
 .texto-presentacion p strong {
-    color: #0f172a;
+    color: #f9fafb;
     font-weight: 700;
 }
 
 .texto-presentacion p:hover {
-    color: #0f172a;
+    color: #d1d5db;
 }
 
 /* Pilares y destacados del perfil */
@@ -278,21 +232,22 @@ h1:hover {
     align-items: center;
     gap: 8px;
     padding: 9px 18px;
-    background: rgba(255, 255, 255, 0.7);
-    border: 1px solid rgba(203, 213, 225, 0.8);
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
     border-radius: 14px;
     font-size: 0.88rem;
     font-weight: 600;
-    color: #1e293b;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.04);
-    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    color: #d1d5db;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease, background 0.3s ease, color 0.3s ease;
 }
 
 .destacado-tag:hover {
     transform: translateY(-3px);
-    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.08);
-    border-color: #818cf8;
-    background: #ffffff;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+    border-color: rgba(99, 102, 241, 0.4);
+    background: rgba(255, 255, 255, 0.08);
+    color: #ffffff;
 }
 
 .tag-icono {
@@ -318,52 +273,56 @@ h1:hover {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), box-shadow 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), background-color 0.3s ease, color 0.3s ease;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+    transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), box-shadow 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
     letter-spacing: 0.3px;
     position: relative;
     outline: none;
 }
 
-/* Accesibilidad: indicador visual de foco para teclado */
+/* Accesibilidad: foco con teclado */
 .boton:focus-visible {
-    outline: 3px solid #8338ec;
+    outline: 3px solid #818cf8;
     outline-offset: 4px;
 }
 
 /* Colores de los botones */
 .boton-primario {
-    background-color: #311b4a; /* Morado profundo elegante */
+    background-color: #4f46e5;
     color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    box-shadow: 0 8px 24px rgba(79, 70, 229, 0.35);
 }
 
 .boton-secundario {
-    background-color: #0f2b48; /* Azul marino profundo */
-    color: #ffffff;
+    background-color: rgba(255, 255, 255, 0.06);
+    color: #f3f4f6;
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
 }
 
-/* Interacción Hover de los botones (contrastes validados WCAG AA) */
+/* Hover de los botones */
 .boton-primario:hover {
-    background-color: #6d28d9; /* Violeta vivo de alto contraste */
-    transform: translateY(-5px) scale(1.04);
-    box-shadow: 0 16px 32px rgba(109, 40, 217, 0.35);
+    background-color: #6366f1;
+    transform: translateY(-4px) scale(1.03);
+    box-shadow: 0 16px 36px rgba(99, 102, 241, 0.45);
     color: #ffffff;
 }
 
 .boton-secundario:hover {
-    background-color: #0284c7; /* Azul cielo intenso de alto contraste */
-    transform: translateY(-5px) scale(1.04);
-    box-shadow: 0 16px 32px rgba(2, 132, 199, 0.35);
+    background-color: rgba(255, 255, 255, 0.12);
+    border-color: rgba(255, 255, 255, 0.3);
+    transform: translateY(-4px) scale(1.03);
+    box-shadow: 0 16px 32px rgba(0, 0, 0, 0.5);
     color: #ffffff;
 }
 
 /* Al presionar */
 .boton:active {
     transform: translateY(2px) scale(0.98); 
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
 
-/* Accesibilidad: Respetar preferencias de movimiento reducido */
+/* Accesibilidad: reducción de movimiento */
 @media (prefers-reduced-motion: reduce) {
     *, *::before, *::after {
         animation-duration: 0.01ms !important;
@@ -372,7 +331,6 @@ h1:hover {
         scroll-behavior: auto !important;
     }
     .background-animado {
-        filter: blur(50px);
         animation: none;
     }
     .background-animado::before,
