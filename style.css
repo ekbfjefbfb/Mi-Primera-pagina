@@ -1,4 +1,4 @@
-/* style.css - Diseño Premium Dark OLED / Oscuro Puro, Fluido, Accesible y Moderno */
+/* style.css - Diseño Premium Monocromático Oscuro Puro (#000000), Sin Azul, Imagen Cuadrada y Estática */
 
 /* Reseteo básico para consistencia */
 *, *::before, *::after {
@@ -7,7 +7,7 @@
     box-sizing: border-box;
 }
 
-/* Configuraciones generales del cuerpo de la página en Oscuro Puro (#000000) */
+/* Configuraciones generales en Oscuro Puro (#000000) */
 body {
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     color: #e5e7eb;
@@ -20,10 +20,9 @@ body {
     overflow-y: auto;
     background-color: #000000;
     background: #000000;
-    perspective: 1000px;
 }
 
-/* Fondo ambiental sutil y oscuro - sin luces chillonas, atmósfera oscura y pulida */
+/* Fondo completamente negro puro - sin tonos azules ni destellos */
 .background-animado {
     position: fixed;
     top: 0;
@@ -31,149 +30,107 @@ body {
     width: 100vw;
     height: 100vh;
     z-index: -1;
-    filter: blur(120px);
-    overflow: hidden;
+    background: #000000;
     pointer-events: none;
-    background-color: #000000;
 }
 
-/* Halos oscuros y elegantes que dan profundidad sobre el fondo negro puro */
-.background-animado::before {
-    content: '';
-    position: absolute;
-    top: -15%;
-    left: 15%;
-    width: 60vw;
-    height: 60vw;
-    border-radius: 50%;
-    background: radial-gradient(circle, rgba(55, 48, 163, 0.12) 0%, rgba(0, 0, 0, 0) 70%);
-    will-change: transform;
-    animation: moverAuraOscura1 25s infinite alternate ease-in-out;
-}
-
-.background-animado::after {
-    content: '';
-    position: absolute;
-    bottom: -15%;
-    right: 15%;
-    width: 60vw;
-    height: 60vw;
-    border-radius: 50%;
-    background: radial-gradient(circle, rgba(30, 58, 138, 0.10) 0%, rgba(0, 0, 0, 0) 70%);
-    will-change: transform;
-    animation: moverAuraOscura2 30s infinite alternate-reverse ease-in-out;
-}
-
-@keyframes moverAuraOscura1 {
-    0% { transform: translate(0, 0) scale(1); }
-    50% { transform: translate(15vw, 10vh) scale(1.15); }
-    100% { transform: translate(-10vw, 20vh) scale(0.9); }
-}
-
-@keyframes moverAuraOscura2 {
-    0% { transform: translate(0, 0) scale(1.1); }
-    50% { transform: translate(-15vw, -10vh) scale(0.95); }
-    100% { transform: translate(10vw, -15vh) scale(1.05); }
-}
-
-/* Tarjeta principal con Dark Glassmorphism de alta gama */
+/* Tarjeta principal con Dark Glassmorphism neutro */
 .contenedor {
-    background: rgba(12, 12, 14, 0.85); 
-    backdrop-filter: blur(40px) saturate(160%); 
-    -webkit-backdrop-filter: blur(40px) saturate(160%);
+    background: rgba(14, 14, 14, 0.88); 
+    backdrop-filter: blur(40px); 
+    -webkit-backdrop-filter: blur(40px);
     width: 100%;
     max-width: 860px;
     padding: 70px 55px;
-    border-radius: 32px;
+    border-radius: 24px;
     text-align: center;
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    box-shadow: 0 30px 60px -15px rgba(0, 0, 0, 0.9), inset 0 1px 0 rgba(255, 255, 255, 0.08);
-    transition: transform 0.8s cubic-bezier(0.165, 0.84, 0.44, 1), box-shadow 0.8s cubic-bezier(0.165, 0.84, 0.44, 1), background 0.5s ease, border-color 0.5s ease;
-    animation: entradaFluida 1.2s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 30px 70px rgba(0, 0, 0, 0.95), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+    animation: entradaSuave 0.8s ease-out forwards;
 }
 
-@keyframes entradaFluida {
+@keyframes entradaSuave {
     0% {
         opacity: 0;
-        transform: translateY(40px) scale(0.96);
+        transform: translateY(20px);
     }
     100% {
         opacity: 1;
-        transform: translateY(0) scale(1);
+        transform: translateY(0);
     }
 }
 
-/* Efecto hover sobre la tarjeta */
-.contenedor:hover {
-    transform: translateY(-8px) scale(1.01);
-    box-shadow: 0 40px 90px -20px rgba(0, 0, 0, 0.95), inset 0 1px 0 rgba(255, 255, 255, 0.14);
-    background: rgba(15, 15, 18, 0.92);
-    border-color: rgba(255, 255, 255, 0.14);
-}
-
-/* Contenedor de la foto de perfil */
+/* Contenedor de la foto de perfil - Cuadrada y totalmente fija (sin moverse) */
 .foto-wrapper {
     position: relative;
-    width: 170px;
-    height: 170px;
-    margin: 0 auto 24px;
-    border-radius: 50%;
+    width: 180px;
+    height: 180px;
+    margin: 0 auto 28px;
+    border-radius: 12px; /* Cuadrada con esquinas suavemente pulidas */
     padding: 4px; 
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.25), rgba(255, 255, 255, 0.04));
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6);
-    transition: transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1), box-shadow 0.6s cubic-bezier(0.165, 0.84, 0.44, 1), background 0.6s ease;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.7);
+    /* Sin transiciones ni transformaciones de movimiento */
+    transform: none !important;
 }
 
+/* Al pasar el mouse, la imagen NO se mueve */
 .foto-wrapper:hover {
-    transform: translateY(-6px) scale(1.06);
-    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.8);
-    background: linear-gradient(135deg, #6366f1, #38bdf8);
+    transform: none !important;
+    border-color: rgba(255, 255, 255, 0.3);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.7);
+    background: rgba(255, 255, 255, 0.12);
 }
 
-/* Estilos de la imagen de perfil */
+/* Estilos de la imagen de perfil cuadrada */
 .foto-perfil {
     width: 100%;
     height: 100%;
-    border-radius: 50%;
+    border-radius: 8px; /* Cuadrada para encajar en el wrapper */
     object-fit: cover;
     object-position: center 18%;
-    border: 3px solid #101014;
+    border: 1px solid rgba(0, 0, 0, 0.5);
     display: block;
-    background-color: #111827;
-    transition: transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+    background-color: #111111;
+    transform: none !important;
 }
 
-/* Insignias académicas */
+.foto-perfil:hover {
+    transform: none !important;
+}
+
+/* Insignias académicas (Sin azul - Monocromáticas y elegantes) */
 .badge-academica {
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 10px;
     flex-wrap: wrap;
-    margin-bottom: 18px;
+    margin-bottom: 20px;
 }
 
 .badge-carrera {
-    background: rgba(99, 102, 241, 0.12);
-    color: #c7d2fe;
+    background: rgba(255, 255, 255, 0.06);
+    color: #f3f4f6;
     font-size: 0.875rem;
     font-weight: 700;
     padding: 6px 16px;
     border-radius: 9999px;
     letter-spacing: 0.3px;
-    border: 1px solid rgba(99, 102, 241, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.18);
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
 }
 
 .badge-universidad {
-    background: rgba(255, 255, 255, 0.06);
-    color: #f3f4f6;
+    background: rgba(255, 255, 255, 0.12);
+    color: #ffffff;
     font-size: 0.8rem;
     font-weight: 800;
     padding: 6px 14px;
     border-radius: 9999px;
     letter-spacing: 0.5px;
-    border: 1px solid rgba(255, 255, 255, 0.12);
+    border: 1px solid rgba(255, 255, 255, 0.22);
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
 }
 
@@ -184,11 +141,6 @@ h1 {
     font-weight: 800;
     margin-bottom: 22px;
     letter-spacing: -0.8px;
-    transition: color 0.4s ease;
-}
-
-h1:hover {
-    color: #a5b4fc;
 }
 
 /* Párrafos de la presentación */
@@ -201,23 +153,18 @@ h1:hover {
     font-size: 1.08rem;
     line-height: 1.85;
     margin-bottom: 18px;
-    color: #9ca3af;
+    color: #a3a3a3;
     font-weight: 400;
     text-align: justify;
     text-justify: inter-word;
-    transition: color 0.4s ease;
 }
 
 .texto-presentacion p strong {
-    color: #f9fafb;
+    color: #ffffff;
     font-weight: 700;
 }
 
-.texto-presentacion p:hover {
-    color: #d1d5db;
-}
-
-/* Pilares y destacados del perfil */
+/* Pilares y destacados del perfil (Monocromáticos) */
 .destacados-container {
     display: flex;
     justify-content: center;
@@ -233,20 +180,18 @@ h1:hover {
     gap: 8px;
     padding: 9px 18px;
     background: rgba(255, 255, 255, 0.04);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    border-radius: 14px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
     font-size: 0.88rem;
     font-weight: 600;
-    color: #d1d5db;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease, background 0.3s ease, color 0.3s ease;
+    color: #d4d4d4;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+    transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
 }
 
 .destacado-tag:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
-    border-color: rgba(99, 102, 241, 0.4);
-    background: rgba(255, 255, 255, 0.08);
+    background: rgba(255, 255, 255, 0.09);
+    border-color: rgba(255, 255, 255, 0.25);
     color: #ffffff;
 }
 
@@ -273,69 +218,56 @@ h1:hover {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), box-shadow 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+    transition: background-color 0.25s ease, border-color 0.25s ease, transform 0.2s ease, box-shadow 0.25s ease;
     letter-spacing: 0.3px;
     position: relative;
     outline: none;
 }
 
-/* Accesibilidad: foco con teclado */
 .boton:focus-visible {
-    outline: 3px solid #818cf8;
+    outline: 2px solid #ffffff;
     outline-offset: 4px;
 }
 
-/* Colores de los botones */
+/* Botón primario: Blanco puro de alto contraste (Sin azul) */
 .boton-primario {
-    background-color: #4f46e5;
-    color: #ffffff;
-    border: 1px solid rgba(255, 255, 255, 0.15);
-    box-shadow: 0 8px 24px rgba(79, 70, 229, 0.35);
+    background-color: #ffffff;
+    color: #000000;
+    border: 1px solid #ffffff;
+    box-shadow: 0 6px 20px rgba(255, 255, 255, 0.12);
 }
 
-.boton-secundario {
-    background-color: rgba(255, 255, 255, 0.06);
-    color: #f3f4f6;
-    border: 1px solid rgba(255, 255, 255, 0.14);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
-}
-
-/* Hover de los botones */
 .boton-primario:hover {
-    background-color: #6366f1;
-    transform: translateY(-4px) scale(1.03);
-    box-shadow: 0 16px 36px rgba(99, 102, 241, 0.45);
+    background-color: #e5e5e5;
+    color: #000000;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 28px rgba(255, 255, 255, 0.2);
+}
+
+/* Botón secundario: Cristal oscuro neutro (Sin azul) */
+.boton-secundario {
+    background-color: rgba(255, 255, 255, 0.05);
     color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
 }
 
 .boton-secundario:hover {
     background-color: rgba(255, 255, 255, 0.12);
-    border-color: rgba(255, 255, 255, 0.3);
-    transform: translateY(-4px) scale(1.03);
-    box-shadow: 0 16px 32px rgba(0, 0, 0, 0.5);
-    color: #ffffff;
+    border-color: rgba(255, 255, 255, 0.4);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.6);
 }
 
-/* Al presionar */
 .boton:active {
-    transform: translateY(2px) scale(0.98); 
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    transform: translateY(1px); 
 }
 
-/* Accesibilidad: reducción de movimiento */
+/* Accesibilidad: preferencias de movimiento reducido */
 @media (prefers-reduced-motion: reduce) {
     *, *::before, *::after {
-        animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: 0.01ms !important;
-        scroll-behavior: auto !important;
-    }
-    .background-animado {
-        animation: none;
-    }
-    .background-animado::before,
-    .background-animado::after {
-        animation: none;
+        animation: none !important;
+        transition: none !important;
     }
 }
 
@@ -358,11 +290,11 @@ h1:hover {
     }
     .contenedor {
         padding: 38px 20px;
-        border-radius: 24px;
+        border-radius: 20px;
     }
     .foto-wrapper {
-        width: 140px; 
-        height: 140px;
+        width: 150px; 
+        height: 150px;
         margin-bottom: 20px;
     }
     .badge-carrera {
